@@ -1,8 +1,8 @@
 ### Схема базы данных ###
-![Схема базы данных](images/WEB_DB.png)
+![Схема базы данных](https://github.com/DariaShel/cmc-WEB-prak/raw/main/images/WEB-DB.png)
 
 ### Схема страниц ###
-![Схема страниц](images/WEB_scheme.png)
+![Схема страниц](https://github.com/DariaShel/cmc-WEB-prak/raw/main/images/WEB_scheme.png)
 
 ### Описание страниц ###
 1. Меню (со всех страниц есть доступ к меню):
