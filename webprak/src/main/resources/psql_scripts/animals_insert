@@ -1,0 +1,97 @@
+INSERT INTO animals (name,
+                     type,
+                     class,
+                     family,
+                     species,
+                     latin_name,
+                     status,
+                     migrations,
+                     appearance,
+                     behaviour,
+                     communications,
+                     photo)
+VALUES
+    (
+        'Natasha', 'Chordata', 'Reptilia', 'Crocodylidae', 'C. niloticus', 'Crocodylus niloticus', 1::bool,
+        0::bool, 'It has short legs located on the sides of the body, scaly skin covered with rows of bone plates, a long strong tail and powerful jaws. The crocodiles eyes are equipped with a third eyelid, which serves for additional protection under water. Near them there are special glands that allow you to rinse your eyes with liquid. The nostrils, ears and eyes are located in the upper part of the head, so that the crocodile can almost completely submerge into the water, leaving them on the surface. The coloring of the Nile crocodile provides him with a disguise. The belly has a yellow tint',
+        'Inactive animals. More than half of the crocodiles observed in nature are basking on the shore or in shallow water from early morning until dusk, keeping their jaws open to avoid overheating. The abrupt closure of the mouth serves as a threat signal for other crocodiles and other animals. Nile crocodiles are very aggressive towards other animals, but at the same time they tolerate a large number of their relatives nearby. Despite the fact that they can remain practically motionless for several hours, Nile crocodiles are well aware of the surroundings and the presence of other animals nearby due to their developed senses.',
+        '{"mother": -1, "father": -1, "child": [3]}', 'images/croc1.jpg'
+    ),
+    (
+        'Gena', 'Chordata', 'Reptilia', 'Crocodylidae', 'C. niloticus', 'Crocodylus niloticus', 1::bool,
+        0::bool, 'It has short legs located on the sides of the body, scaly skin covered with rows of bone plates, a long strong tail and powerful jaws. The crocodiles eyes are equipped with a third eyelid, which serves for additional protection under water. Near them there are special glands that allow you to rinse your eyes with liquid. The nostrils, ears and eyes are located in the upper part of the head, so that the crocodile can almost completely submerge into the water, leaving them on the surface. The coloring of the Nile crocodile provides him with a disguise. The belly has a yellow tint',
+        'Inactive animals. More than half of the crocodiles observed in nature are basking on the shore or in shallow water from early morning until dusk, keeping their jaws open to avoid overheating. The abrupt closure of the mouth serves as a threat signal for other crocodiles and other animals. Nile crocodiles are very aggressive towards other animals, but at the same time they tolerate a large number of their relatives nearby. Despite the fact that they can remain practically motionless for several hours, Nile crocodiles are well aware of the surroundings and the presence of other animals nearby due to their developed senses.',
+        '{"mother": -1, "father": -1, "child": [3]}', 'images/croc2.jpg'
+    ),
+    (
+        'Clint', 'Chordata', 'Reptilia', 'Crocodylidae', 'C. niloticus', 'Crocodylus niloticus', 1::bool,
+        0::bool, 'It has short legs located on the sides of the body, scaly skin covered with rows of bone plates, a long strong tail and powerful jaws. The crocodiles eyes are equipped with a third eyelid, which serves for additional protection under water. Near them there are special glands that allow you to rinse your eyes with liquid. The nostrils, ears and eyes are located in the upper part of the head, so that the crocodile can almost completely submerge into the water, leaving them on the surface. The coloring of the Nile crocodile provides him with a disguise. The belly has a yellow tint',
+        'Inactive animals. More than half of the crocodiles observed in nature are basking on the shore or in shallow water from early morning until dusk, keeping their jaws open to avoid overheating. The abrupt closure of the mouth serves as a threat signal for other crocodiles and other animals. Nile crocodiles are very aggressive towards other animals, but at the same time they tolerate a large number of their relatives nearby. Despite the fact that they can remain practically motionless for several hours, Nile crocodiles are well aware of the surroundings and the presence of other animals nearby due to their developed senses.',
+        '{"mother": 1, "father": 2, "child": []}', 'images/croc3.png'
+    );
+
+
+INSERT INTO employees (surname,
+                       name,
+                       patronymic,
+                       education,
+                       work_experience,
+                       animal_species,
+                       help,
+                       marked,
+                       photo)
+VALUES
+    (
+        'Kostin', 'Andrey', 'Igorevich', 'secondary education', 4, '["C. niloticus"]', '[1]', '[1]', 'images/emp1.jpg'
+    ),
+    (
+        'Ivanov', 'Alexey', 'Alexandrivich', 'secondary education', 3, '["C. niloticus"]', '[2]', '[2]', 'images/emp2.jpg'
+    ),
+    (
+        'Kamnev', 'Boris', 'Olegovich', 'secondary education', 5, '["C. niloticus"]', '[1, 2, 3]', '[3]', 'images/emp3.jpg'
+    );
+
+
+INSERT INTO labels (id_animal,
+                    installation_time,
+                    uninstallation_time,
+                    id_employee)
+VALUES
+    (
+        1, '2012-08-17'::DATE, '2017-05-26'::DATE, 1
+    ),
+    (
+        2, '2012-06-14'::DATE, '2017-06-25'::DATE, 2
+    ),
+    (
+        3, '2018-09-03'::DATE, NULL, 3
+    );
+
+INSERT INTO diseases (id_animal,
+                      name_disease,
+                      time_disease,
+                      recovery,
+                      id_employee,
+                      help,
+                      consequences)
+VALUES
+    (
+        1, 'stomatitis', '2016-05-04'::DATE, '2016-05-19'::DATE, 1, 'Local oral treatment and general antibacterial therapy',
+        'None'
+    ),
+    (
+        1, 'pneumonia', '2017-09-03'::DATE, '2017-10-01'::DATE, 3, 'General use of broad-spectrum injectable antibiotics',
+        'Wheezing when breathing'
+    ),
+    (
+        2, 'stomatitis', '2016-05-14'::DATE, '2016-06-02'::DATE, 2, 'Local oral treatment and general antibacterial therapy',
+        'None'
+    ),
+    (
+        1, 'pneumonia', '2017-08-28'::DATE, '2017-09-30'::DATE, 3, 'General use of broad-spectrum injectable antibiotics',
+        'Wheezing when breathing'
+    ),
+    (
+        2, 'stomatitis', '2019-04-10'::DATE, '2019-04-22'::DATE, 3, 'Local oral treatment and general antibacterial therapy',
+        'None'
+    );

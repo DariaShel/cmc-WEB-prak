@@ -1,0 +1,61 @@
+DROP TABLE IF EXISTS animals CASCADE;
+DROP TABLE IF EXISTS employees CASCADE;
+DROP TABLE IF EXISTS labels CASCADE;
+DROP TABLE IF EXISTS diseases CASCADE;
+
+CREATE TABLE animals (
+	id_animal integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1),
+	name varchar NOT NULL,
+	type varchar,
+	class varchar,
+	family varchar,
+	species varchar,
+	latin_name varchar,
+	status bool NOT NULL,
+	migrations bool NOT NULL,
+	appearance text,
+	behaviour text,
+	communications varchar,
+	photo varchar
+);
+
+CREATE TABLE employees (
+	id_employee integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1),
+	surname varchar NOT NULL,
+	name varchar NOT NULL,
+	patronymic varchar,
+	education text,
+	work_experience integer,
+	animal_species varchar,
+	help varchar,
+	marked varchar,
+	photo varchar
+);
+
+CREATE TABLE labels (
+	id_label integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1),
+	id_animal integer CONSTRAINT con1 REFERENCES animals ON DELETE CASCADE,
+	installation_time date,
+	uninstallation_time date,
+	id_employee integer CONSTRAINT con2 REFERENCES employees ON DELETE SET NULL
+);
+
+CREATE TABLE diseases (
+	id_disease integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1),
+	id_animal integer CONSTRAINT con3 REFERENCES animals ON DELETE CASCADE,
+	name_disease varchar,
+	time_disease date,
+	recovery date,
+	id_employee integer CONSTRAINT con4 REFERENCES employees ON DELETE SET NULL,
+	help text,
+	consequences text
+);
+
+	
+		
+		
+		
+		
+		
+		
+		
