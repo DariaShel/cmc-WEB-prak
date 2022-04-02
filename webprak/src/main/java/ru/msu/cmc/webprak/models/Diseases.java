@@ -14,7 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Diseases {
+public class Diseases implements CommonEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "id_disease")
@@ -58,5 +58,15 @@ public class Diseases {
                 && Objects.equals(id_employee, other.id_employee)
                 && Objects.equals(help, other.help)
                 && Objects.equals(consequences, other.consequences);
+    }
+
+    @Override
+    public Long getId() {
+        return null;
+    }
+
+    @Override
+    public void setId(Long aLong) {
+
     }
 }

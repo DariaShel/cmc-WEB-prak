@@ -14,7 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Labels {
+public class Labels implements CommonEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "id_label")
@@ -46,5 +46,15 @@ public class Labels {
                 && Objects.equals(installation_time, other.installation_time)
                 && Objects.equals(uninstallation_time, other.uninstallation_time)
                 && Objects.equals(id_employee, other.id_employee);
+    }
+
+    @Override
+    public Long getId() {
+        return null;
+    }
+
+    @Override
+    public void setId(Long aLong) {
+
     }
 }

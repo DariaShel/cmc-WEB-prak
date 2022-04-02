@@ -4,12 +4,7 @@ import ru.msu.cmc.webprak.models.Diseases;
 
 import java.util.List;
 
-public interface DiseasesDAO {
-    void addDisease(Diseases disease);
-    void updateDisease(Diseases disease);
-    void deleteDisease(Diseases disease);
+public interface DiseasesDAO extends CommonDAO<Diseases, Long> {
 
-    List<Diseases> getDiseaseByName(String diseaseName);
-    Diseases getDiseaseById(Long diseaseId);
-    List<Diseases> getDiseaseAll();
+    List<Diseases> getDiseaseByDiseaseName(String diseaseName);
 }

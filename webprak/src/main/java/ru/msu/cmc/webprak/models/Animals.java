@@ -1,8 +1,6 @@
 package ru.msu.cmc.webprak.models;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -15,7 +13,23 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Animals {
+public class Animals implements CommonEntity<Long> {
+
+    public Animals(String name, String type, String class_field,
+                   String family, String species, String latin_name,
+                   int status, int migrations, String appearance,
+                   String behavior, String communications, String photo) {
+    }
+
+    @Override
+    public Long getId() {
+        return null;
+    }
+
+    @Override
+    public void setId(Long aLong) {
+
+    }
 
     public enum StatusType {
         DEAD,

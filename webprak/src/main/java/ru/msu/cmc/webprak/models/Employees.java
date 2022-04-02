@@ -13,7 +13,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Employees {
+public class Employees implements CommonEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "id_employee")
@@ -65,4 +65,13 @@ public class Employees {
                 && Objects.equals(photo, other.photo);
     }
 
+    @Override
+    public Long getId() {
+        return null;
+    }
+
+    @Override
+    public void setId(Long aLong) {
+
+    }
 }

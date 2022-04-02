@@ -4,12 +4,8 @@ import ru.msu.cmc.webprak.models.Animals;
 
 import java.util.List;
 
-public interface AnimalsDAO {
-    void addAnimal(Animals animal);
-    void updateAnimal(Animals animal);
-    void deleteAnimal(Animals animal);
+public interface AnimalsDAO extends CommonDAO<Animals, Long> {
+    List<Animals> getAnimalsByName(String animalName);
 
-    List<Animals> getAnimalByName(String animalName);
-    Animals getAnimalById(Long animalId);
-    List<Animals> getAnimalAll();
+    List<Animals> getAnimalsBySpecies(String animalSpecies);
 }
