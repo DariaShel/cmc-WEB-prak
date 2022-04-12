@@ -3,8 +3,6 @@ package ru.msu.cmc.webprak.DAO;
 import ru.msu.cmc.webprak.models.CommonEntity;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 
 public interface CommonDAO<T extends CommonEntity<ID>, ID> {
     T getById(ID id);
@@ -19,9 +17,9 @@ public interface CommonDAO<T extends CommonEntity<ID>, ID> {
 
     void update(T entity);
 
-    void create(T entity);
+//    void create(T entity);
 
-    List<T> filter(Map<String, List> filters, Class persistentClass);
-
-    List<T> sort(Map<String, String> order, Class persistentClass);
+//    List<T> filter(Map<String, List> filters, Class persistentClass);
+//
+//    List<T> sort(Map<String, String> order, Class persistentClass);
 }

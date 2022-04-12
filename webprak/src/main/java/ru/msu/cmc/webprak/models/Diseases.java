@@ -18,7 +18,7 @@ public class Diseases implements CommonEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "id_disease")
-    private long id_disease;
+    private Long id_disease;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_animal")

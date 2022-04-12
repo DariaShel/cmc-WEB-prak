@@ -1,24 +1,16 @@
 package ru.msu.cmc.webprak.DAO.functions;
 
-import org.hibernate.Criteria;
-import org.hibernate.Filter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import ru.msu.cmc.webprak.DAO.CommonDAO;
 import ru.msu.cmc.webprak.models.CommonEntity;
 
-import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public abstract class CommonDAOFunc<T extends CommonEntity<ID>, ID extends Serializable> implements CommonDAO<T, ID> {
@@ -93,51 +85,51 @@ public abstract class CommonDAOFunc<T extends CommonEntity<ID>, ID extends Seria
         }
     }
 
-    @Override
-    public void create(T entity) {
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            session.save(entity);
-            session.getTransaction().commit();
-            session.close();
-        }
-    }
-
-    @Override
-    public List<T> filter(Map<String,List> filters, Class persistentClass) {
-        try (Session session = sessionFactory.openSession()) {
-            filters.entrySet().forEach(entry -> {
-                String filterName = entry.getKey();
-                List parameters = entry.getValue();
-                Filter enableFilter = session.enableFilter(filterName);
-                Set<String> paramNames = enableFilter.getFilterDefinition().getParameterNames();
-                AtomicInteger i = new AtomicInteger();
-                paramNames.forEach(name ->
-                        enableFilter.setParameter(name, parameters.get(i.getAndIncrement()))
-                );
-            });
-
-            Query query = session.createQuery("FROM " + persistentClass.getName());
-
-            @SuppressWarnings("unchecked")
-            List<?> result = ((org.hibernate.query.Query<?>) query).list();
-            session.close();
-            return (List<T>) result;
-        }
-    }
-
-    @Override
-    public List<T> sort(Map<String, String> order, Class persistentClass) {
-        try (Session session = sessionFactory.openSession()) {
-            Criteria criteria = session.createCriteria(persistentClass, "CRITERIA");
-            order.forEach((key, value) -> {
-                if (value.equals("asc")) {
-                    criteria.addOrder(Order.asc(key));
-                } else if (value.equals("desc")) {
-                    criteria.addOrder(Order.desc(key));
-                }
-            });
-            return criteria.list();
-        }
-    }
+//    @Override
+//    public void create(T entity) {
+//        try (Session session = sessionFactory.openSession()) {
+//            session.beginTransaction();
+//            session.save(entity);
+//            session.getTransaction().commit();
+//            session.close();
+//        }
+//    }
+//
+//    @Override
+//    public List<T> filter(Map<String,List> filters, Class persistentClass) {
+//        try (Session session = sessionFactory.openSession()) {
+//            filters.entrySet().forEach(entry -> {
+//                String filterName = entry.getKey();
+//                List parameters = entry.getValue();
+//                Filter enableFilter = session.enableFilter(filterName);
+//                Set<String> paramNames = enableFilter.getFilterDefinition().getParameterNames();
+//                AtomicInteger i = new AtomicInteger();
+//                paramNames.forEach(name ->
+//                        enableFilter.setParameter(name, parameters.get(i.getAndIncrement()))
+//                );
+//            });
+//
+//            Query query = session.createQuery("FROM " + persistentClass.getName());
+//
+//            @SuppressWarnings("unchecked")
+//            List<?> result = ((org.hibernate.query.Query<?>) query).list();
+//            session.close();
+//            return (List<T>) result;
+//        }
+//    }
+//
+//    @Override
+//    public List<T> sort(Map<String, String> order, Class persistentClass) {
+//        try (Session session = sessionFactory.openSession()) {
+//            Criteria criteria = session.createCriteria(persistentClass, "CRITERIA");
+//            order.forEach((key, value) -> {
+//                if (value.equals("asc")) {
+//                    criteria.addOrder(Order.asc(key));
+//                } else if (value.equals("desc")) {
+//                    criteria.addOrder(Order.desc(key));
+//                }
+//            });
+//            return criteria.list();
+//        }
+//    }
 }

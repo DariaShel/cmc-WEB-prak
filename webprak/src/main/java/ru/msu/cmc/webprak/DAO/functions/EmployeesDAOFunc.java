@@ -16,19 +16,27 @@ public class EmployeesDAOFunc extends CommonDAOFunc<Employees, Long> implements 
     }
 
     @Override
-    public List<Employees> getEmployeeByName(String employeeName) {
+    public List<Employees> getEmployeesBySurname(String employeeSurname) {
         try (Session session = sessionFactory.openSession()) {
-            Query query = session.createQuery("FROM Employees WHERE name LIKE :gotName", Employees.class)
-                    .setParameter("gotName", likeExpr(employeeName));
+            Query query = session.createQuery("FROM Employees WHERE surname LIKE :gotName", Employees.class)
+                    .setParameter("gotName", likeExpr(employeeSurname));
             return query.getResultList().size() == 0 ? null : query.getResultList();
         }
     }
 
     @Override
-    public List<Employees> getEmployeesBySurname(String employeeSurname) {
+    public List<Employees> getEmployeesByEducation(String employeeEducation) {
         try (Session session = sessionFactory.openSession()) {
-            Query query = session.createQuery("FROM Employees WHERE surname LIKE :gotName", Employees.class)
-                    .setParameter("gotName", likeExpr(employeeSurname));
+            Query query = session.createQuery("FROM Employees WHERE education LIKE :gotName", Employees.class)
+                    .setParameter("gotName", likeExpr(employeeEducation));
+            return query.getResultList().size() == 0 ? null : query.getResultList();
+        }
+    }
+
+    @Override
+    public List<Employees> getEmployeesByWorkExperience(long employeeExperience) {
+        try (Session session = sessionFactory.openSession()) {
+            Query query = session.createQuery("FROM Employees WHERE work_experience=:employeeExperience", Employees.class);
             return query.getResultList().size() == 0 ? null : query.getResultList();
         }
     }

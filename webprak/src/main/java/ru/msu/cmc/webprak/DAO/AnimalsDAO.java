@@ -7,5 +7,9 @@ import java.util.List;
 public interface AnimalsDAO extends CommonDAO<Animals, Long> {
     List<Animals> getAnimalsByName(String animalName);
 
+    Animals getSingleAnimalByName(String animalName);
+
     List<Animals> getAnimalsBySpecies(String animalSpecies);
+
+    List<Animals> getAnimalsByLatinName(String latinName);
 }

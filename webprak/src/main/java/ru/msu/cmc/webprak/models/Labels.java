@@ -18,7 +18,7 @@ public class Labels implements CommonEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "id_label")
-    private long id_label;
+    private Long id_label;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_animal")

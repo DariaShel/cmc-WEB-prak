@@ -15,22 +15,6 @@ import java.util.Objects;
 
 public class Animals implements CommonEntity<Long> {
 
-    public Animals(String name, String type, String class_field,
-                   String family, String species, String latin_name,
-                   int status, int migrations, String appearance,
-                   String behavior, String communications, String photo) {
-    }
-
-    @Override
-    public Long getId() {
-        return null;
-    }
-
-    @Override
-    public void setId(Long aLong) {
-
-    }
-
     public enum StatusType {
         DEAD,
         ALIVE
@@ -44,7 +28,7 @@ public class Animals implements CommonEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "id_animal")
-    private long id_animal;
+    private Long id_animal;
 
     @Column(nullable = false, name = "name")
     @NonNull
@@ -65,7 +49,7 @@ public class Animals implements CommonEntity<Long> {
     @Column(name = "latin_name")
     private String latin_name;
 
-    @Column(nullable = false, name = "status")
+    @Column(name = "status")
     @NonNull
     private StatusType status;
 
@@ -103,6 +87,16 @@ public class Animals implements CommonEntity<Long> {
                 && Objects.equals(behavior, other.behavior)
                 && Objects.equals(communications, other.communications)
                 && Objects.equals(photo, other.photo);
+    }
+
+    @Override
+    public Long getId() {
+        return id_animal;
+    }
+
+    @Override
+    public void setId(Long aLong) {
+        id_animal = aLong;
     }
 
 }

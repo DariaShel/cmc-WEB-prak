@@ -17,7 +17,7 @@ public class Employees implements CommonEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "id_employee")
-    private long id_employee;
+    private Long id_employee;
 
     @Column(nullable = false, name = "surname")
     @NonNull
