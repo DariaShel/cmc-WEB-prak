@@ -25,6 +25,13 @@ public class EmployeesDAOFunc extends CommonDAOFunc<Employees, Long> implements 
     }
 
     @Override
+    public Employees getSingleEmployeeBySurname(String employeeSurname) {
+        List<Employees> candidates = this.getEmployeesBySurname(employeeSurname);
+        return candidates == null ? null :
+                candidates.size() == 1 ? candidates.get(0) : null;
+    }
+
+    @Override
     public List<Employees> getEmployeesByEducation(String employeeEducation) {
         try (Session session = sessionFactory.openSession()) {
             Query query = session.createQuery("FROM Employees WHERE education LIKE :gotName", Employees.class)
@@ -36,7 +43,8 @@ public class EmployeesDAOFunc extends CommonDAOFunc<Employees, Long> implements 
     @Override
     public List<Employees> getEmployeesByWorkExperience(long employeeExperience) {
         try (Session session = sessionFactory.openSession()) {
-            Query query = session.createQuery("FROM Employees WHERE work_experience=:employeeExperience", Employees.class);
+            Query query = session.createQuery("FROM Employees WHERE work_experience=:experience", Employees.class)
+                    .setParameter("experience", employeeExperience);
             return query.getResultList().size() == 0 ? null : query.getResultList();
         }
     }

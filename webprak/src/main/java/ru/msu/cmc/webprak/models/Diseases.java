@@ -3,7 +3,6 @@ package ru.msu.cmc.webprak.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -22,6 +21,7 @@ public class Diseases implements CommonEntity<Long> {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_animal")
+    @ToString.Exclude
     @NonNull
     private Animals id_animal;
 
@@ -29,13 +29,14 @@ public class Diseases implements CommonEntity<Long> {
     private String name_disease;
 
     @Column(name = "time_disease")
-    private Date time_disease;
+    private java.util.Date time_disease;
 
     @Column(name = "recovery")
-    private Date recovery;
+    private java.util.Date recovery;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee")
+    @ToString.Exclude
     @NonNull
     private Employees id_employee;
 
@@ -62,11 +63,11 @@ public class Diseases implements CommonEntity<Long> {
 
     @Override
     public Long getId() {
-        return null;
+        return id_disease;
     }
 
     @Override
     public void setId(Long aLong) {
-
+        id_disease = aLong;
     }
 }
