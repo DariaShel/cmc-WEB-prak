@@ -37,7 +37,7 @@ CREATE TABLE labels (
 	id_animal integer CONSTRAINT con1 REFERENCES animals ON DELETE CASCADE,
 	installation_time date,
 	uninstallation_time date,
-	id_employee integer CONSTRAINT con2 REFERENCES employees ON DELETE SET NULL
+	id_employee integer CONSTRAINT con2 REFERENCES employees ON DELETE CASCADE
 );
 
 CREATE TABLE diseases (
@@ -46,7 +46,7 @@ CREATE TABLE diseases (
 	name_disease varchar,
 	time_disease date,
 	recovery date,
-	id_employee integer CONSTRAINT con4 REFERENCES employees ON DELETE SET NULL,
+	id_employee integer CONSTRAINT con4 REFERENCES employees ON DELETE CASCADE,
 	help text,
 	consequences text
 );
