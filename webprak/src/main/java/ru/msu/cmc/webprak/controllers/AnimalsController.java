@@ -12,6 +12,7 @@ import ru.msu.cmc.webprak.models.Animals;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(path = "api/animals")
 public class AnimalsController {
 

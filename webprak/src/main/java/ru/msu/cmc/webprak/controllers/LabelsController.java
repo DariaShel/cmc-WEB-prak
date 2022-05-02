@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(path = "api/labels")
 public class LabelsController {
 

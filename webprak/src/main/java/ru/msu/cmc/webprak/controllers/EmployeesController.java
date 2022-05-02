@@ -12,6 +12,7 @@ import ru.msu.cmc.webprak.models.Employees;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(path = "api/employees")
 public class EmployeesController {
 
