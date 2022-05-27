@@ -33,10 +33,19 @@ public class AnimalsController {
             animal.put("family", singleAnimal.getFamily());
             animal.put("species", singleAnimal.getSpecies());
             animal.put("latin_name", singleAnimal.getLatin_name());
-            animal.put("status", singleAnimal.getStatus());
-            animal.put("migrations", singleAnimal.getMigrations());
+            if (singleAnimal.getStatus() == Animals.StatusType.DEAD) {
+                animal.put("status", 0);
+            } else {
+                animal.put("status", 1);
+            }
+
+            if (singleAnimal.getMigrations() == Animals.MigrationsType.NO_MIGRATING) {
+                animal.put("migrations", 0);
+            } else {
+                animal.put("migrations", 1);
+            }
             animal.put("appearance", singleAnimal.getAppearance());
-            animal.put("behaviour", singleAnimal.getBehavior());
+            animal.put("behaviour", singleAnimal.getBehaviour());
             animal.put("communications", singleAnimal.getCommunications());
             animal.put("photo", singleAnimal.getPhoto());
             animals.add(animal);
@@ -55,10 +64,19 @@ public class AnimalsController {
         animal.put("family", singleAnimal.getFamily());
         animal.put("species", singleAnimal.getSpecies());
         animal.put("latin_name", singleAnimal.getLatin_name());
-        animal.put("status", singleAnimal.getStatus());
-        animal.put("migrations", singleAnimal.getMigrations());
+        if (singleAnimal.getStatus() == Animals.StatusType.DEAD) {
+            animal.put("status", 0);
+        } else {
+            animal.put("status", 1);
+        }
+
+        if (singleAnimal.getMigrations() == Animals.MigrationsType.NO_MIGRATING) {
+            animal.put("migrations", 0);
+        } else {
+            animal.put("migrations", 1);
+        }
         animal.put("appearance", singleAnimal.getAppearance());
-        animal.put("behaviour", singleAnimal.getBehavior());
+        animal.put("behaviour", singleAnimal.getBehaviour());
         animal.put("communications", singleAnimal.getCommunications());
         animal.put("photo", singleAnimal.getPhoto());
         return animal.toJSONString();
@@ -100,7 +118,7 @@ public class AnimalsController {
             animal.setStatus(status);
             animal.setMigrations(migrate);
             animal.setAppearance((String) object.get("appearance"));
-            animal.setBehavior((String) object.get("behaviour"));
+            animal.setBehaviour((String) object.get("behaviour"));
             animal.setCommunications((String) object.get("communications"));
             animal.setPhoto((String) object.get("photo"));
             animalsDAO.update(animal);

@@ -60,8 +60,8 @@ public class Animals implements CommonEntity<Long> {
     @Column(name = "appearance")
     private String appearance;
 
-    @Column(name = "behavior")
-    private String behavior;
+    @Column(name = "behaviour")
+    private String behaviour;
 
     @Column(name = "communications")
     private String communications;
@@ -84,7 +84,7 @@ public class Animals implements CommonEntity<Long> {
                 && Objects.equals(status, other.status)
                 && Objects.equals(migrations, other.migrations)
                 && Objects.equals(appearance, other.appearance)
-                && Objects.equals(behavior, other.behavior)
+                && Objects.equals(behaviour, other.behaviour)
                 && Objects.equals(communications, other.communications)
                 && Objects.equals(photo, other.photo);
     }

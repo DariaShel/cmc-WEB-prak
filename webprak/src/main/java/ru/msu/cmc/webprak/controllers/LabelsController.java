@@ -99,7 +99,7 @@ public class LabelsController {
         Animals id_animal = animalsDAO.getById(Long.parseLong((String) object.get("id_animal")));
         Employees id_employee = employeesDAO.getById(Long.parseLong((String) object.get("id_employee")));
 
-        DateFormat formatter = new SimpleDateFormat("yyyy-dd-MM");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         if (label != null) {
             label.setId_animal(id_animal);
             label.setInstallation_time(formatter.parse((String) object.get("installation_time")));
